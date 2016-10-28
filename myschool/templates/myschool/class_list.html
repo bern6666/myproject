@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block title %}Classes{% endblock %}
+{% block headline %} <h1> Classes </h1>{% endblock %}
+{% block content %}
+    <table>
+        <tr><th>Designation</th><th>Teacher</th><th>Number Of Students</th></tr>
+        {% for class in class_list %}
+         <tr>
+             <td>{{class.designation}}</td>
+             <td>{{class.teacher}}</td>
+             <td style="text-align:center">
+                 <a href= "{% url 'class_detail' class.id %}">
+                 {{class.students.count}} student{{class.students.count|pluralize}}</a>
+             </td>
+        </tr>
+        {% endfor %}
+    </table>
+{% endblock %}

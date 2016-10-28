@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block title %}Payment Detail{% endblock %}
+{% block headline %} <h1> Details of Payment of {{payment.date}} </h1>{% endblock %}
+{% block content %}
+{% if payment %}
+    <table>
+        <tr> <td> Date </td> <td>{{payment.date}}</td></tr>
+        <tr> <td> Amount</td><td>{{payment.amount}}</td></tr>
+        <tr> <td> Paid by student</td><td>{{payment.student}}</td></tr>
+        <tr><td>More ...</td><td></td></tr>
+        <tr> <td>Other payments of student</td>
+              <td><a href="{% url 'studentpayments_detail' payment.student_id %}">
+                  {{payment.student}} </a>
+              </td> </tr>
+        <tr> <td>All details of student</td>
+             <td><a href="{% url 'student_detail' payment.student_id %}">
+                {{payment.student}} </a>
+            </td> </tr>
+    </table>
+{% else %} no payment available
+{% endif %}
+{% endblock %}

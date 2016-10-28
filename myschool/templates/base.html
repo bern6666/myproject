@@ -1,0 +1,28 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN">
+{% load static %}
+<html lang="en">
+<head>
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'myschool/style.css' %}">
+</head>
+<body>
+    {% block headline %}<h1>My Headline</h1>{% endblock %}
+
+    {% block content %}{% endblock %}
+
+    {% block footer %}
+
+    <hr>
+    <p>
+    <a class=menu  href='{% url 'home' %}' > home </a> &ensp;
+    <a class=menu href='{% url 'students' %}' > students </a> &ensp;
+    <a class=menu href='{% url 'classes' %}' > classes </a> &ensp;
+    <a class=menu href='{% url 'payments' %}' > payments by date</a>&ensp;
+    <a class=menu href='{% url 'studentpayments' %}' > payments by student</a>
+    <p>
+    <p>Thanks for visiting our site.</p>
+    {% endblock %}
+</body>
+</html>

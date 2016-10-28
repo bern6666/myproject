@@ -24,6 +24,7 @@ class Class(models.Model):
 
     class Meta:
         ordering = ('designation',)
+        verbose_name_plural = 'classes'
 
 
 class Payment(models.Model):
@@ -32,7 +33,7 @@ class Payment(models.Model):
     student = models.ForeignKey('Student', on_delete=models.CASCADE,)
 
     def __str__(self):
-        return '%s %s' % (self.designation, self.teacher)
+        return '%s %s %s' % (self.date, self.amount, self.student)
 
     class Meta:
         ordering = ('date', 'student',)

@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block title %}Student Payments Details{% endblock %}
+{% block headline %}
+    <h1> Payments of Student {{student.first_name}} {{student.last_name}} </h1>
+{% endblock %}
+{% block content %}
+{% if paymentlist %}
+    <h3>There {{num_pm|pluralize:"is, are" }} {{num_pm}} payment{{num_pm|pluralize}}
+    with a total of {{student.sum_pm|floatformat:2}}. </h3>
+        <ul>{% for payment in paymentlist %}
+                <li> {{payment.amount}} -  {{payment.date|date:"d.m.Y"}}</li>
+            {% empty %}
+                <li>Sorry, there are no payments</li>
+            {% endfor %}
+        </ul>
+    <table>
+        <tr><td>Sum of the payments</td><td style="text-align:right">{{student.sum_pm|floatformat:2}}</td></tr>
+        <tr><td>Highest payment</td><td style="text-align:right">{{student.max_pm|floatformat:2}}  </td></tr>
+        <tr><td>Lowest payment</td><td style="text-align:right">{{student.min_pm|floatformat:2}} </td></tr>
+        <tr><td>Average payment</td><td style="text-align:right">{{student.avg_pm|floatformat:2}} </td></tr>
+    </table>
+{% else %}
+    There are no payments in the database
+{% endif %}
+{% endblock %}
