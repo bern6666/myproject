@@ -1,0 +1,47 @@
+<!doctype html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel='shortcut icon' href="{% static 'myschool/images/mozart.ico' %}" type='image/x-icon' />
+    <link rel="stylesheet" type="text/css" href="{% static 'myschool/css/mystyle.css' %}">
+    {% block title %} My Page {% endblock %}
+    {% block scripts %} {% endblock %}
+    {% block styles %} {% endblock %}
+</head>
+<body>
+<div class="page">
+    {% block menu_class %} <div class="menu"> {% endblock %}
+            {% block menu %}
+                <div style="background-color: #f1f1f1; font-size:2em; width: 100% ">Mozart's Friends</div>
+                <ul class="sidenav">
+                   <li><a id="homeNav"  href="{% url 'home' %}">Home</a></li>
+                   <li><a id="studNav"  href="{% url 'students' %}"">Students</a></li>
+                   <li><a id="classNav" href="{% url 'classes' %}">Classes</a></li>
+                   <li><a id="payNav"   href="{% url 'payments' %}">Payments</a></li>
+                </ul>
+             {% endblock %}
+    </div>
+
+    <div class="content">
+            {% block content %}
+                <div class="header">
+                    <h2>Mozart's Friends</h2>
+                        <div class="headline">
+                            {% block headline %}
+                                <h1>My Headline</h1>
+                            {% endblock %}
+                        </div><!--headline -->
+                </div><!-- header -->
+            {% endblock %}
+    </div><!-- content -->
+
+    <div class="footer">
+        {% block footer %}
+            <hr> &copy; November 2016 &ensp; Bernhard Six <hr>
+        {% endblock %}
+    </div> <!-- footer -->
+  </div><!-- page -->
+</body>
+</html>

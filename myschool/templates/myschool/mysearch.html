@@ -1,0 +1,28 @@
+{% extends "mybase.html" %}
+{% block title %}<title>Search Students</title>{% endblock %}
+{% block menu_class %}<div class="menu_stud">{% endblock %}
+{% block content %}
+        {% block headline %}<h2> Search Students</h2>{% endblock %}
+        {% if error %}
+            <p style="color: red;">Please submit a search term.</p>
+        {% endif %}
+        <div class="search_section">
+            <p>Please enter what you are searching for:</p>
+            <form id="search_form_id" method="get" action="{% url 'search' %}">
+                <input type="text" id="search_text" name="q"/>
+                <input id="id_submit_button" type="submit" value="Search"/>
+            </form>
+
+            <p>You are searching for: <strong> {{ query }}</strong></p>
+                {% if studentlist %}
+                <p>Found {{ studentlist|length }} student{{ studentlist|pluralize }}:</p>
+                <ul>
+                {% for student in studentlist %}
+                    <li><a href ="{% url 'student_detail' student.id %}"> {{student.first_name}} {{ student.last_name }}</a></li>
+                {% endfor %}
+                </ul>
+                {% else %}
+                <p>No student matched your search criteria.</p>
+                {% endif %}
+        </div><!-- search_section -->
+{% endblock %}

@@ -1,16 +1,15 @@
-{% extends "base.html" %}
-{% block title %}Student Classes Details{% endblock %}
-{% block headline %}
-    <h1> Classes of Student {{student.first_name}} {{student.last_name}} </h1>
-{% endblock %}
+{% extends "mybase.html" %}
+{% block title %}<title>Student Classes Details</title>{% endblock %}
+{% block menu_class %}<div class="menu_class">{% endblock %}
 {% block content %}
+        {% block headline %}<h2> Classes of Student <br \>{{student.first_name}} {{student.last_name}}</h2>{% endblock %}
 {% if student %}
     There {{num_classes|pluralize:"is, are" }} {{num_classes}} class{{num_classes|pluralize:"es" }}
         <ul>{% for class, studentlist in dict_class_students.items %}
                 <li> <strong> <a href="{% url 'class_detail' class.id %}"> {{class}} </a></strong><br />
                     student{{studentlist|length|pluralize}}
                     <ul>{% for s in studentlist %}
-                            <li><a href="{% url 'student_detail' s.id %}">{{s.first_name}} {{s.last_name}}</a></li>
+                            <li><a href="{% url 'student_detail' s.id %}" data-ajax="false">{{s.first_name}} {{s.last_name}}</a></li>
                         {% empty %}
                             <li>Sorry, no students in this class.</li>
                         {% endfor %}

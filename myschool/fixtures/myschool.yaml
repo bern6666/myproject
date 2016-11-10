@@ -1,0 +1,99 @@
+-   model: myschool.student
+    pk: 1
+    fields: {last_name: Swift, first_name: John, salutation: Mr, birthdate: 2010-02-24}
+-   model: myschool.student
+    pk: 2
+    fields: {last_name: McGregor, first_name: Ian, salutation: Mr, birthdate: 2004-04-30}
+-   model: myschool.student
+    pk: 3
+    fields: {last_name: Ivons, first_name: Carla, salutation: Mrs, birthdate: 2005-05-15}
+-   model: myschool.student
+    pk: 4
+    fields: {last_name: Rogan, first_name: John, salutation: Mr, birthdate: 2009-08-17}
+-   model: myschool.student
+    pk: 5
+    fields: {last_name: Taylor, first_name: Mary, salutation: Mrs, birthdate: 2007-09-19}
+-   model: myschool.class
+    pk: 2
+    fields:
+        designation: drums
+        teacher: Ben Meyers
+        students: [4]
+-   model: myschool.class
+    pk: 3
+    fields:
+        designation: flute
+        teacher: Diane Kruger
+        students: [3, 2]
+-   model: myschool.class
+    pk: 4
+    fields:
+        designation: piano
+        teacher: Arthur Miller
+        students: [3, 5]
+-   model: myschool.class
+    pk: 5
+    fields:
+        designation: sax
+        teacher: Carl Levins
+        students: [4]
+-   model: myschool.class
+    pk: 6
+    fields:
+        designation: violin
+        teacher: Carla Stevens
+        students: [5]
+-   model: myschool.class
+    pk: 7
+    fields:
+        designation: voice
+        teacher: Karin Auster
+        students: [1]
+-   model: myschool.payment
+    pk: 1
+    fields: {date: 2014-01-30, amount: '30.00', student: 2}
+-   model: myschool.payment
+    pk: 2
+    fields: {date: 2014-01-30, amount: '40.00', student: 4}
+-   model: myschool.payment
+    pk: 3
+    fields: {date: 2014-02-01, amount: '50.00', student: 1}
+-   model: myschool.payment
+    pk: 4
+    fields: {date: 2014-03-01, amount: '50.00', student: 5}
+-   model: myschool.payment
+    pk: 5
+    fields: {date: 2014-03-01, amount: '60.00', student: 5}
+-   model: myschool.payment
+    pk: 6
+    fields: {date: 2014-04-30, amount: '30.00', student: 3}
+-   model: myschool.payment
+    pk: 7
+    fields: {date: 2015-01-01, amount: '10.00', student: 4}
+-   model: myschool.payment
+    pk: 8
+    fields: {date: 2015-01-01, amount: '30.00', student: 1}
+-   model: myschool.payment
+    pk: 9
+    fields: {date: 2015-01-01, amount: '20.00', student: 3}
+-   model: myschool.payment
+    pk: 10
+    fields: {date: 2015-02-01, amount: '40.00', student: 2}
+-   model: myschool.payment
+    pk: 11
+    fields: {date: 2015-02-02, amount: '30.00', student: 5}
+-   model: myschool.payment
+    pk: 12
+    fields: {date: 2015-03-01, amount: '40.00', student: 3}
+-   model: myschool.payment
+    pk: 13
+    fields: {date: 2015-03-30, amount: '60.00', student: 3}
+-   model: myschool.payment
+    pk: 14
+    fields: {date: 2015-04-01, amount: '50.00', student: 4}
+-   model: myschool.payment
+    pk: 15
+    fields: {date: 2015-06-29, amount: '50.00', student: 4}
+-   model: myschool.payment
+    pk: 16
+    fields: {date: 2015-06-30, amount: '60.00', student: 1}

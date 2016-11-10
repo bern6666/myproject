@@ -1,0 +1,22 @@
+{% extends "mybase.html" %}
+{% load static %}
+{% block title %}<title>Mozart's Friends</title>{% endblock %}
+{% block menu_class %}<div class="menu_home">{% endblock %}
+{% block content %}
+    {% block headline %}<h2>Mozart's Friends</h2>{% endblock %}
+    <div class="img">
+    <img src="{% static 'myschool/images/mozart.jpg' %}" alt="Mozart" />
+    </div>
+    <p>
+    We are happy to see you here at our music school.<br/>
+    We hope you like {{name}} <br/>
+    </p>
+    <p>
+    You have access to all the data in our database,<br/>
+    all the students, all the classes, all the payments<br/>
+    and you can see a lot of details of all of these.<br/>
+    </p>
+    <div class="img">
+    <img src="{% static 'myschool/images/autumn.gif' %}" alt="Autumn"/>
+    </div>
+{% endblock %}

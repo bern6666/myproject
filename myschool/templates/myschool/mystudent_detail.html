@@ -1,0 +1,53 @@
+{% extends "mybase.html" %}
+{% block title %}<title>Student Details</title>{% endblock %}
+{% block menu_class %}<div class="menu_stud">{% endblock %}
+{% block content %}
+{% block headline %}
+  <h2> Details of Student <br \>{{student.first_name}} {{student.last_name}} </h2>
+{% endblock %}
+{% if student %}
+<div id="personal_data">
+  <h2>Personal Data</h2>
+  <table>
+    <tr> <td>Salutation: </td> <td>{{student.salutation}}</td></tr>
+    <tr> <td>Last Name: </td>  <td>{{student.last_name}}</td></tr>
+    <tr> <td>First Name: </td> <td>{{student.first_name}}</td></tr>
+    <tr> <td>Birthdate: </td>  <td>{{student.birthdate|date:"d.m.Y"}}</td></tr>
+  </table>
+</div><!--  Personal Data -->
+
+<div id="school_data">
+  <h2>School Data</h2>
+
+  <div id="accordion">
+    <h3> {{ student.class_set.count }} Class{{ student.class_set.count|pluralize:"es" }} </h3>
+    <div><p>
+        <ul>
+            <li><a href="{% url 'studentclasses_detail' student.id %}" > Details </a></li>
+            {% for c in student.class_set.all %}
+            <li> <a href ={% url 'class_detail' c.id %}>{{c}}</a> </li>
+            {% empty %}
+            <li> no classes </li>
+            {% endfor %}
+        </ul></p>
+    </div>
+
+    <h3> {{student.payment_count }} Payment{{student.payment_count|pluralize}}
+             Sum {{student.sum|floatformat:"2"}} </h3>
+    <div><p>
+        <ul>
+          <li><a href="{% url 'studentpayments_detail' student.id %}"> Details</a></li>
+            {% for p in student.payment_set.all %}
+                <li>{{p.amount|floatformat:"2"}} - {{p.date|date:"d.m.Y"}} </li>
+            {% empty %}
+                <li> no payments </li>
+            {% endfor %}
+        </ul></p>
+    </div>
+  </div><!-- accordion -->
+</div><!-- school_data -->
+{% else %} This student is not available
+{% endif %}
+
+<!-- <div id="distance"><p></br></p></div> -->
+{% endblock %}
