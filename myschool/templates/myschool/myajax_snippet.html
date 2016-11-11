@@ -7,17 +7,15 @@
         <th>First Name</th>
         <th>Birthdate</th>
         <th>Pay</th>
-        <th>Cla</h>
+        <th>Cla</th>
     </tr>
 {% for student in studentlist %}
     <td>{{student.salutation}}</td>
     <td><a href="{% url 'student_detail' student.id %}" data-ajax="false">{{student.last_name}}</a></td>
     <td>{{student.first_name}}</td>
     <td>{{student.birthdate|date:"d.m.y"}}</td>
-    <td style="text-align:center"><a href="{% url 'studentpayments_detail' student.id %}">
-        {{student.payment_set.count}}</a> </td>
-    <td style="text-align:center"><a href="{% url 'studentclasses_detail' student.id %}">
-        {{student.class_set.count}}</a> </td>
+    <td style="text-align:center"><a href="{% url 'studentpayments_detail' student.id %}"> {{student.payment_set.count}}</a> </td>
+    <td style="text-align:center"><a href="{% url 'studentclasses_detail' student.id %}"> {{student.class_set.count}}</a> </td>
 </tr>
 {% endfor %}
 </table>

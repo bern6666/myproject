@@ -2,8 +2,8 @@
 {% block title %}<title>Student Payments Details</title>{% endblock %}
 {% block menu_class %}<div class="menu_pay">{% endblock %}
 {% block content %}
-        {% block headline %}<h2>Payments of Student <br \> {{student.first_name}} {{student.last_name}} </h2>{% endblock %}
-{% if paymentlist %}
+        {% block headline %}<h2>Payments of Student <br> {{student.first_name}} {{student.last_name}} </h2>{% endblock %}
+    {% if paymentlist %}
     <h3>There {{num_pm|pluralize:"is, are" }} {{num_pm}} payment{{num_pm|pluralize}}
     with a total of {{student.sum_pm|floatformat:2}}. </h3>
         <ul>{% for payment in paymentlist %}
@@ -12,13 +12,13 @@
                 <li>Sorry, there are no payments</li>
             {% endfor %}
         </ul>
-    <table>
-        <tr><td>Sum of the payments</td><td style="text-align:right">{{student.sum_pm|floatformat:2}}</td></tr>
-        <tr><td>Highest payment</td><td style="text-align:right">{{student.max_pm|floatformat:2}}  </td></tr>
-        <tr><td>Lowest payment</td><td style="text-align:right">{{student.min_pm|floatformat:2}} </td></tr>
-        <tr><td>Average payment</td><td style="text-align:right">{{student.avg_pm|floatformat:2}} </td></tr>
-    </table>
-{% else %}
-    There are no payments in the database
-{% endif %}
+        <table>
+            <tr><td>Sum of the payments</td><td style="text-align:right">{{student.sum_pm|floatformat:2}}</td></tr>
+            <tr><td>Highest payment</td><td style="text-align:right">{{student.max_pm|floatformat:2}}  </td></tr>
+            <tr><td>Lowest payment</td><td style="text-align:right">{{student.min_pm|floatformat:2}} </td></tr>
+            <tr><td>Average payment</td><td style="text-align:right">{{student.avg_pm|floatformat:2}} </td></tr>
+        </table>
+    {% else %}
+        There are no payments in the database
+    {% endif %}
 {% endblock %}

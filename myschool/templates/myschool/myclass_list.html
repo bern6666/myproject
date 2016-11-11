@@ -2,18 +2,18 @@
 {% block title %}<title>Classes</title>{% endblock %}
 {% block menu_class %}<div class="menu_class">{% endblock %}
 {% block content %}
-    {% block headline %}<h2>Classes</h2>{% endblock %}
-    <table>
-        <tr><th>Designation</th><th>Teacher</th><th style="text-align:center">Number Of Students</th></tr>
-        {% for class in class_list %}
-         <tr>
-             <td>{{class.designation}}</td>
-             <td>{{class.teacher}}</td>
-             <td style="text-align:center">
-                 <a href= "{% url 'class_detail' class.id %}">
-                 {{class.students.count}} student{{class.students.count|pluralize}}</a>
-             </td>
-        </tr>
-        {% endfor %}
-    </table>
+        {% block headline %}<h2>Classes</h2>{% endblock %}
+        <table>
+            <tr><th>Designation</th><th>Teacher</th><th style="text-align:center">Number Of Students</th></tr>
+            {% for class in class_list %}
+            <tr>
+                <td>{{class.designation}}</td>
+                <td>{{class.teacher}}</td>
+                <td style="text-align:center">
+                    <a href= "{% url 'class_detail' class.id %}">
+                    {{class.students.count}} student{{class.students.count|pluralize}}</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
 {% endblock %}

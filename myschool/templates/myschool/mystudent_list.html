@@ -22,40 +22,36 @@
 {% block content %}
         {% block headline %}<h2>Students</h2>{% endblock %}
 
-<div class="ajax-widget">
-    <label for="input"><i>First Letters of Last Name:</i></label>
-    <input id="input" type="text" size="6" onkeyup="mySearch(this.value)" />
-</div>
+        <div class="ajax-widget">
+            <label for="input"><i>First Letters of Last Name:</i></label>
+            <input id="input" type="text" size="6" onkeyup="mySearch(this.value)" />
+        </div>
 
-<div id='msg'>Waiting for your input...</div>
-<div id="output">
-
-
-{% if student_list %}
-<table>
-    <tr>
-        <th>Sal</th>
-        <th>Last Name</th>
-        <th>First Name</th>
-        <th>Birthdate</th>
-        <th>Pay</th>
-        <th>Cla</h>
-    </tr>
-    {% for student in student_list %}
-    <tr>
-        <td>{{student.salutation}}</td>
-        <td><a href="{% url 'student_detail' student.id %}" data-ajax="false">{{student.last_name}}</a></td>
-        <td>{{student.first_name}}</td>
-        <td>{{student.birthdate|date:"d.m.y"}}</td>
-        <td style="text-align:center"><a href="{% url 'studentpayments_detail' student.id %}">
-            {{student.payment_set.count}}</a> </td>
-        <td style="text-align:center"><a href="{% url 'studentclasses_detail' student.id %}">
-            {{student.class_set.count}}</a> </td>
-    </tr>
-    {% endfor %}
-</table>
-{% else %}
-    <p>There are no students</p>
-{% endif %}
-</div> <!--ouptut> -->
+        <div id='msg'>Waiting for your input...</div>
+        <div id="output">
+        {% if student_list %}
+            <table>
+                <tr>
+                    <th>Sal</th>
+                    <th>Last Name</th>
+                    <th>First Name</th>
+                    <th>Birthdate</th>
+                    <th>Pay</th>
+                    <th>Cla</th>
+                </tr>
+                {% for student in student_list %}
+                <tr>
+                    <td>{{student.salutation}}</td>
+                    <td><a href="{% url 'student_detail' student.id %}" data-ajax="false">{{student.last_name}}</a></td>
+                    <td>{{student.first_name}}</td>
+                    <td>{{student.birthdate|date:"d.m.y"}}</td>
+                    <td style="text-align:center"><a href="{% url 'studentpayments_detail' student.id %}"> {{student.payment_set.count}}</a> </td>
+                    <td style="text-align:center"><a href="{% url 'studentclasses_detail' student.id %}"> {{student.class_set.count}}</a> </td>
+                </tr>
+                {% endfor %}
+            </table>
+            {% else %}
+                <p>There are no students</p>
+            {% endif %}
+        </div> <!--ouptut> -->
 {% endblock %}

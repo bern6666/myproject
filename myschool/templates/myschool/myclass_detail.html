@@ -2,24 +2,24 @@
 {% block title %}<title>Class Details</title>{% endblock %}
 {% block menu_class %}<div class="menu_class">{% endblock %}
 {% block content %}
-    {% block headline %}<h2>{{ class.designation }} - {{class.teacher}}</h2>{% endblock %}
-There {{num_students|pluralize:"is, are" }} <strong>{{num_students}} student{{num_students|pluralize}}</strong> in this class  <br \>
+        {% block headline %}<h2>{{ class.designation }} - {{class.teacher}}</h2>{% endblock %}
+        There {{num_students|pluralize:"is, are" }} <b>{{num_students}} student{{num_students|pluralize}}</b> in this class  <br>
 
-{% if studentlist %}
-    <table>
-        <tr>
-            <th>Salutation</th><th>First Name</th>
-            <th>Last Name</th> <th>birthdate</th>
-        </tr>
-        {% for s in studentlist %}
-         <tr>
-             <td>{{s.salutation}}</td><td>{{s.first_name}}</td>
-             <td><a href="{% url 'student_detail' s.id %}" data-ajax="false">{{s.last_name}}</a></td>
-             <td>{{s.birthdate|date:"d.m.Y"}}</td>
-        </tr>
-        {% endfor %}
-    </table>
-{% else %} no students in this class
-{% endif %}
-
+        {% if studentlist %}
+        <table>
+            <tr>
+                <th>Salutation</th><th>First Name</th>
+                <th>Last Name</th> <th>birthdate</th>
+            </tr>
+            {% for s in studentlist %}
+            <tr>
+                <td>{{s.salutation}}</td><td>{{s.first_name}}</td>
+                <td><a href="{% url 'student_detail' s.id %}" data-ajax="false">{{s.last_name}}</a></td>
+                <td>{{s.birthdate|date:"d.m.Y"}}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        {% else %}
+            no students in this class
+        {% endif %}
 {% endblock %}
